@@ -9,7 +9,7 @@ import java.nio.charset.Charset;
 /**
  * @author chenwei
  * @date 2019年6月19日
- * @descriptions 
+ * @descriptions 未使用netty的阻塞网络编程
  */
 public class PlainOioServer {
 	
