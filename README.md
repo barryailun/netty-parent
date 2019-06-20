@@ -1,2 +1,2 @@
 # netty-parent
-netty
+netty example
