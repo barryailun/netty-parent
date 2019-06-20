@@ -7,6 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
+import java.util.Set;
 
 /** 
  * @author chenwei
@@ -29,9 +30,11 @@ public class PlainNioServer {
 			try {
 				// 等待需要处理的新事件
 				selector.select();
-			} catch (Exception e) {
-				// TODO: handle exception
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				break;
 			}
+			Set<SelectionKey> readyKeys = selector.selectedKeys();
 		}
 		
 	}
