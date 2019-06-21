@@ -19,7 +19,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 /**
  * @author chenwei
  * @date 2019年6月21日
- * @descriptions 使用netty的非阻塞网络处理
+ * @descriptions 使用netty的非阻塞网络处理,netty可以很方便切换io模式
  */
 public class NettyNioServer {
 	
