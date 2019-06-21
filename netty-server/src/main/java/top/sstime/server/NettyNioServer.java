@@ -12,25 +12,25 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.EventLoopGroup;
-import io.netty.channel.oio.OioEventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.channel.socket.oio.OioServerSocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * @author chenwei
- * @date 2019年6月20日
- * @descriptions 使用netty的阻塞网络处理
+ * @date 2019年6月21日
+ * @descriptions 使用netty的非阻塞网络处理
  */
-public class NettyOioServer {
+public class NettyNioServer {
 	
 	public void server(int port) throws Exception {
 		final ByteBuf buf = Unpooled.unreleasableBuffer(
 				Unpooled.copiedBuffer("Hi!\r\n", Charset.forName("UTF-8")));
-		EventLoopGroup group = new OioEventLoopGroup();
+		EventLoopGroup group = new NioEventLoopGroup();
 		try {
 			ServerBootstrap boot = new ServerBootstrap();
 			boot.group(group)
-				.channel(OioServerSocketChannel.class)
+				.channel(NioServerSocketChannel.class)
 				.localAddress(new InetSocketAddress(port))
 				.childHandler(new ChannelInitializer<SocketChannel>() {
 					protected void initChannel(SocketChannel ch) throws Exception {
